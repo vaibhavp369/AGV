@@ -127,23 +127,28 @@ char path_follow(unsigned char L_sen, unsigned char C_sen, unsigned char R_sen)
 	
 	if (node_detected)
 	{	
-		lcd_string(2,1,"CO:");
-		lcd_wr_char(2,4,current_orientation);
+		
 		
 		lcd_string(1,1,"CP:");
 		lcd_wr_char(1,4,current_position_x);
 		lcd_wr_char(1,5,',');
 		lcd_wr_char(1,6,current_position_y);
 		
-				lcd_string(1,8,"NP:");
-				lcd_wr_char(1,11,*next_position_x);
-				lcd_wr_char(1,12,',');
-				lcd_wr_char(1,13,*next_position_y);
+		
+		lcd_string(1,8,"NP:");
+		lcd_wr_char(1,11,*next_position_x);
+		lcd_wr_char(1,12,',');
+		lcd_wr_char(1,13,*next_position_y);
 				
 		
 		next_orientation = getNextOrientation(&current_position_x,&current_position_y,&next_position_x,&next_position_y);
+		
+		lcd_string(2,1,"CO:");
+		lcd_wr_char(2,4,next_orientation);
+		/*
 		lcd_string(2,8,"NO:");
 		lcd_wr_char(2,11,next_orientation);
+		*/
 		
 		
 		if (next_orientation == 'x')
